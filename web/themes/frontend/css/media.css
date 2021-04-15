@@ -1,0 +1,386 @@
+@charset "utf-8";
+
+
+/* CSS Document */
+
+@media (max-width:1065px) and (min-width:980px) {}
+@media (min-width: 992px) and (max-width: 1200px) { 
+    
+ .discover .outer{
+    background-size: 35% 67% !important;
+    }
+.demo .dialogue_box {
+        padding: 30px;
+    }
+        .demo .dialogue_box h1 {
+    font-size: 34.77px;
+    }
+
+    .demo .dialogue_box p {
+        font-size: 15px;
+    }
+
+    .demo .dialogue_box ul i {
+        margin-bottom: 20px;
+    }
+
+    .demo .dialogue_box ul h5 {
+    font-size: 14px;
+    }
+
+ }
+
+ @media (min-width: 767px) and (max-width: 1300px) {
+    .plans .theme-heading {
+        margin-bottom: 20px;
+    }
+    .plans .top_heading h1 {
+        font-size: 20px;
+    }
+
+    .plans .btn.theme-gradient {
+        margin-top: 20px;
+    }
+ }
+
+ @media (min-width: 767px) and (max-width: 991px) { 
+    
+    .discover .outer{
+    background-size: 30% 67% !important;
+    }
+    .demo .dialogue_box {
+        padding: 30px;
+    }
+    .demo .social_links {
+    padding: 230px 0px 50px;
+    }
+
+    .demo .dialogue_box h1 {
+    font-size: 34.77px;
+    }
+
+    .demo .dialogue_box p {
+        font-size: 15px;
+    }
+
+    .demo .dialogue_box ul i {
+        margin-bottom: 20px;
+
+    }
+
+    .demo .dialogue_box ul h5 {
+    font-size: 14px;
+    }
+
+
+
+ }
+
+@media (min-width:1465px) {
+
+    .demo .dialogue_box {
+        padding: 30px;
+    }
+
+}
+    
+
+@media (min-width:1399px) {
+    .container {
+        max-width: 1270px;
+    }
+
+    .banner-sec .outer{
+        background-position: right;
+        background-size: contain;
+    }
+
+    .discover .outer{
+    background-size: 42.5% 67% !important;
+    }
+
+}
+
+@media (min-width:1340px) {
+    
+}
+
+@media (min-width:992px) {
+.testimonials .card-columns{
+        -webkit-column-count: 4;
+        -moz-column-count: 41;
+        column-count: 4;
+        }
+}
+
+@media (max-width:1465px) {
+}
+
+@media (max-width:1365px) {}
+
+@media (max-width:1339px) {
+
+}
+
+@media (max-width:1299px) {
+
+}
+
+@media (max-width:1199px) {
+
+}
+
+@media (max-width:1065px) {
+
+}
+
+
+
+/* media-css-start max-width:981px */
+
+@media (max-width:991px) {
+	h1 {
+    font-size: 34px;
+}
+header .navbar-light .navbar-nav .nav-link.btn-round {
+    margin: auto;
+}
+.navbar-light .navbar-toggler {
+    border: 0;
+}
+
+.header2 .navbar-light .navbar-toggler-icon{
+    background-image: url('../images/download2.png') !important;
+}
+
+
+.navbar-light .navbar-toggler-icon{
+    background-image: url('../images/download.png') !important;
+}
+
+.newClass .navbar-light .navbar-toggler-icon{
+    background-image: url('../images/download2.png') !important;
+}
+
+.alt-header .navbar-collapse{
+    background: #eef6f9 !important;
+    background: -moz-linear-gradient(top, #eef6f9 0%, #bdc6cd 100%)!important;
+    background: -webkit-linear-gradient(top, #eef6f9 0%, #bdc6cd 100%)!important;
+    background: linear-gradient(to bottom, #eef6f9 0%, #bdc6cd 100%)!important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eef6f9', endColorstr='#bdc6cd',GradientType=0 )!important;
+}
+
+.alt-header .navbar-collapse ul li.active .nav-link{color: #13337a !important;}
+
+.alt-header .navbar-collapse ul li:last-child{
+    padding: 10px 0;
+}
+
+.newClass .navbar-collapse{
+    background:none !important;
+}
+
+}
+
+
+
+/* media-css-end max-width:981px */
+
+
+/* media-css-start max-width:981px */
+
+@media (max-width:981px) {}
+
+
+
+/* media-css-end max-width:981px */
+
+
+/* media-css-start max-width:800px */
+
+@media (max-width:800px) {}
+
+
+
+/* media-css-end max-width:800px */
+
+
+/* media-css-start min-width:768px */
+
+@media (min-width:768px) {
+
+}
+
+
+
+/* media-css-start min-width:768px */
+
+
+/* media-css-end max-width:767px */
+
+@media (max-width:767px) {
+ 
+ .position-img {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: visible;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: none;
+}
+
+.signup-blue {
+    background-size: cover;
+    height: auto !important;
+}
+
+.forgotpw{
+    height: 100vh !important;
+}
+
+.form-sign {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    max-width: 100%;
+    margin-bottom: 50px;
+}
+.navbar-light .navbar-brand {
+    max-width: 130px;
+}
+header .navbar-light {
+    padding: 1rem 1rem;
+}
+
+.banner-sec .outer {
+    background-size: contain;
+}
+.banner-sec .inner {
+    padding: 40px 0px !important;
+}
+.discover .outer {
+    background-image: none;
+}
+
+.box{
+    height: auto !important;
+    margin-bottom: 20px;
+}
+
+.help_desk{
+    position: static !important;
+}
+
+.demo .dialogue_box {
+    padding: 20px;
+}
+
+.demo .dialogue_box ul {
+    flex-direction: column;
+}
+
+.demo .social_links {
+    padding: 50px 0px 50px;
+}
+
+.subscription .content {
+    flex-direction: column;
+}
+
+.subscription .content h1 {
+    margin-bottom: 50px;
+}
+
+.help_desk{
+    background-color: #fff;
+}
+
+.help_desk .container{
+    max-width: 100%;
+}
+
+.demo .dialogue_box {
+
+    box-shadow:none;
+}
+    .testimonials .card-columns{
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+        }
+.plans {
+    height: auto;
+}
+
+
+}
+
+
+
+/* media-css-end max-width:767px */
+
+
+/* media-css-end max-width:567px */
+
+@media (max-width:576px) {
+
+     .testimonials .card-columns{
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+        }
+
+}
+
+
+
+/* media-css-end max-width:567px */
+
+
+/* media-css-start max-width:480px */
+
+@media (max-width:480px) {
+    .banner-sec .outer .links {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .banner-sec .outer .links li {
+        margin-bottom: 15px;
+    }
+
+    .copyright .inner {
+        flex-direction: column;
+    }
+
+    .copyright .inner .text {
+        margin-top: 10px;
+    }  
+
+}
+
+
+
+/* media-css-end max-width:480px */
+
+
+/* media-css-start max-width:360px */
+
+@media (max-width:360px) {
+
+}
+
+
+
+/* media-css-end max-width:360px */
+
+
+/* media-css-start max-width:320px */
+
+@media (max-width:320px) {}
+
+
+
+/* media-css-end max-width:320px */

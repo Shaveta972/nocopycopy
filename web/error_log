@@ -1,0 +1,633 @@
+[23-May-2019 09:43:35 UTC] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/ScanController.php on line 42. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/ScanController.php on line 42. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/web/index.php(14): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'CONTEXT_DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '_identity=d903d36a2794a03015d880cf01f5bbf04b9accdf26e0462d34768f9a47105acda%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B1%2Cnull%2C2592000%5D%22%3B%7D; _csrf=584dfe478ccafa5495944d3d14c7f500f0b3bb42036d1c6c020fe56fcd5b64efa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%2248lkhH4lNygtjK-rZY1gHU8b3AHREDPN%22%3B%7D; PHPSESSID=afe4718a7c8f55a4ae41149a853300d4',
+    'HTTP_HOST' => 'game.miraclechd.co',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36',
+    'PATH' => '/bin:/usr/bin',
+    'PHP_INI_SCAN_DIR' => '/opt/cpanel/ea-php72/root/etc:/opt/cpanel/ea-php72/root/etc/php.d:.',
+    'QUERY_STRING' => '',
+    'REDIRECT_SCRIPT_URI' => 'http://game.miraclechd.co/no-copy/web/scan/get-example',
+    'REDIRECT_SCRIPT_URL' => '/no-copy/web/scan/get-example',
+    'REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'XOZrRtJjUO2nlOgMCXqf7gAAAAE',
+    'REDIRECT_URL' => '/no-copy/web/scan/get-example',
+    'REMOTE_ADDR' => '182.74.128.50',
+    'REMOTE_PORT' => '18981',
+    'REQUEST_METHOD' => 'GET',
+    'REQUEST_SCHEME' => 'http',
+    'REQUEST_URI' => '/no-copy/web/scan/get-example',
+    'SCRIPT_FILENAME' => '/home/gamemiraclechd/public_html/no-copy/web/index.php',
+    'SCRIPT_NAME' => '/no-copy/web/index.php',
+    'SCRIPT_URI' => 'http://game.miraclechd.co/no-copy/web/scan/get-example',
+    'SCRIPT_URL' => '/no-copy/web/scan/get-example',
+    'SERVER_ADDR' => '210.16.103.166',
+    'SERVER_ADMIN' => 'webmaster@game.miraclechd.co',
+    'SERVER_NAME' => 'game.miraclechd.co',
+    'SERVER_PORT' => '80',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'TZ' => 'Etc/UTC',
+    'UNIQUE_ID' => 'XOZrRtJjUO2nlOgMCXqf7gAAAAE',
+    'PHP_SELF' => '/no-copy/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1558604614.0441238880157470703125,
+    'REQUEST_TIME' => 1558604614,
+    'argv' => [],
+    'argc' => 0,
+]
+[20-Jul-2019 11:52:39 UTC] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 147. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 147. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/web/index.php(12): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'CONTEXT_DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTPS' => 'on',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '__cfduid=d8a6cf15e14723261dfa795a8d6afc1f01562240087; PHPSESSID=503188b6ea53112d1d9d09f45e5e069f; _identity=0649c5f3ff0549e3e006864cf81111898a6b85a29728a76d16a718029f4335dca%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B31%2Cnull%2C2592000%5D%22%3B%7D; _csrf=c116039b892d0bf6cd3e818e93fbffbde32b457b94759db851da34a0dadbb62ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22jDzigVZfuQy3h5XFjDTTofOFRnKJcy_r%22%3B%7D',
+    'HTTP_HOST' => 'game.miraclechd.co',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36',
+    'HTTP_X_HTTPS' => '1',
+    'PATH' => '/bin:/usr/bin',
+    'PHP_INI_SCAN_DIR' => '/opt/cpanel/ea-php72/root/etc:/opt/cpanel/ea-php72/root/etc/php.d:.',
+    'QUERY_STRING' => '',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'REDIRECT_SCRIPT_URL' => '/no-copy/web/site/additional',
+    'REDIRECT_SSL_TLS_SNI' => 'game.miraclechd.co',
+    'REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'XTMAho5wxQ5WaADL9LFRMAAAAAQ',
+    'REDIRECT_URL' => '/no-copy/web/site/additional',
+    'REMOTE_ADDR' => '182.74.128.50',
+    'REMOTE_PORT' => '33321',
+    'REQUEST_METHOD' => 'GET',
+    'REQUEST_SCHEME' => 'https',
+    'REQUEST_URI' => '/no-copy/web/site/additional',
+    'SCRIPT_FILENAME' => '/home/gamemiraclechd/public_html/no-copy/web/index.php',
+    'SCRIPT_NAME' => '/no-copy/web/index.php',
+    'SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'SCRIPT_URL' => '/no-copy/web/site/additional',
+    'SERVER_ADDR' => '210.16.103.166',
+    'SERVER_ADMIN' => 'webmaster@game.miraclechd.co',
+    'SERVER_NAME' => 'game.miraclechd.co',
+    'SERVER_PORT' => '443',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SSL_TLS_SNI' => 'game.miraclechd.co',
+    'TZ' => 'Etc/UTC',
+    'UNIQUE_ID' => 'XTMAho5wxQ5WaADL9LFRMAAAAAQ',
+    'PHP_SELF' => '/no-copy/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1563623558.7625598907470703125,
+    'REQUEST_TIME' => 1563623558,
+    'argv' => [],
+    'argc' => 0,
+]
+[20-Jul-2019 11:52:42 UTC] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 147. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 147. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/web/index.php(12): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'CONTEXT_DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTPS' => 'on',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '__cfduid=d8a6cf15e14723261dfa795a8d6afc1f01562240087; PHPSESSID=503188b6ea53112d1d9d09f45e5e069f; _identity=0649c5f3ff0549e3e006864cf81111898a6b85a29728a76d16a718029f4335dca%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B31%2Cnull%2C2592000%5D%22%3B%7D; _csrf=c116039b892d0bf6cd3e818e93fbffbde32b457b94759db851da34a0dadbb62ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22jDzigVZfuQy3h5XFjDTTofOFRnKJcy_r%22%3B%7D',
+    'HTTP_HOST' => 'game.miraclechd.co',
+    'HTTP_REFERER' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36',
+    'HTTP_X_HTTPS' => '1',
+    'PATH' => '/bin:/usr/bin',
+    'PHP_INI_SCAN_DIR' => '/opt/cpanel/ea-php72/root/etc:/opt/cpanel/ea-php72/root/etc/php.d:.',
+    'QUERY_STRING' => '',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'REDIRECT_SCRIPT_URL' => '/no-copy/web/site/additional',
+    'REDIRECT_SSL_TLS_SNI' => 'game.miraclechd.co',
+    'REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'XTMAiY5wxQ5WaADL9LFRMQAAAAQ',
+    'REDIRECT_URL' => '/no-copy/web/site/additional',
+    'REMOTE_ADDR' => '182.74.128.50',
+    'REMOTE_PORT' => '33321',
+    'REQUEST_METHOD' => 'GET',
+    'REQUEST_SCHEME' => 'https',
+    'REQUEST_URI' => '/no-copy/web/site/additional',
+    'SCRIPT_FILENAME' => '/home/gamemiraclechd/public_html/no-copy/web/index.php',
+    'SCRIPT_NAME' => '/no-copy/web/index.php',
+    'SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'SCRIPT_URL' => '/no-copy/web/site/additional',
+    'SERVER_ADDR' => '210.16.103.166',
+    'SERVER_ADMIN' => 'webmaster@game.miraclechd.co',
+    'SERVER_NAME' => 'game.miraclechd.co',
+    'SERVER_PORT' => '443',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SSL_TLS_SNI' => 'game.miraclechd.co',
+    'TZ' => 'Etc/UTC',
+    'UNIQUE_ID' => 'XTMAiY5wxQ5WaADL9LFRMQAAAAQ',
+    'PHP_SELF' => '/no-copy/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1563623561.83992290496826171875,
+    'REQUEST_TIME' => 1563623561,
+    'argv' => [],
+    'argc' => 0,
+]
+[20-Jul-2019 11:52:46 UTC] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 147. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 147. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/web/index.php(12): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'CONTEXT_DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTPS' => 'on',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '__cfduid=d8a6cf15e14723261dfa795a8d6afc1f01562240087; PHPSESSID=503188b6ea53112d1d9d09f45e5e069f; _identity=0649c5f3ff0549e3e006864cf81111898a6b85a29728a76d16a718029f4335dca%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B31%2Cnull%2C2592000%5D%22%3B%7D; _csrf=c116039b892d0bf6cd3e818e93fbffbde32b457b94759db851da34a0dadbb62ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22jDzigVZfuQy3h5XFjDTTofOFRnKJcy_r%22%3B%7D',
+    'HTTP_HOST' => 'game.miraclechd.co',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36',
+    'HTTP_X_HTTPS' => '1',
+    'PATH' => '/bin:/usr/bin',
+    'PHP_INI_SCAN_DIR' => '/opt/cpanel/ea-php72/root/etc:/opt/cpanel/ea-php72/root/etc/php.d:.',
+    'QUERY_STRING' => '',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'REDIRECT_SCRIPT_URL' => '/no-copy/web/site/additional',
+    'REDIRECT_SSL_TLS_SNI' => 'game.miraclechd.co',
+    'REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'XTMAjo5wxQ5WaADL9LFRMgAAAAQ',
+    'REDIRECT_URL' => '/no-copy/web/site/additional',
+    'REMOTE_ADDR' => '182.74.128.50',
+    'REMOTE_PORT' => '33321',
+    'REQUEST_METHOD' => 'GET',
+    'REQUEST_SCHEME' => 'https',
+    'REQUEST_URI' => '/no-copy/web/site/additional',
+    'SCRIPT_FILENAME' => '/home/gamemiraclechd/public_html/no-copy/web/index.php',
+    'SCRIPT_NAME' => '/no-copy/web/index.php',
+    'SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'SCRIPT_URL' => '/no-copy/web/site/additional',
+    'SERVER_ADDR' => '210.16.103.166',
+    'SERVER_ADMIN' => 'webmaster@game.miraclechd.co',
+    'SERVER_NAME' => 'game.miraclechd.co',
+    'SERVER_PORT' => '443',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SSL_TLS_SNI' => 'game.miraclechd.co',
+    'TZ' => 'Etc/UTC',
+    'UNIQUE_ID' => 'XTMAjo5wxQ5WaADL9LFRMgAAAAQ',
+    'PHP_SELF' => '/no-copy/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1563623566.5248730182647705078125,
+    'REQUEST_TIME' => 1563623566,
+    'argv' => [],
+    'argc' => 0,
+]
+[20-Jul-2019 11:53:20 UTC] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 147. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 147. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/web/index.php(12): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'CONTEXT_DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTPS' => 'on',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '__cfduid=d8a6cf15e14723261dfa795a8d6afc1f01562240087; PHPSESSID=503188b6ea53112d1d9d09f45e5e069f; _identity=0649c5f3ff0549e3e006864cf81111898a6b85a29728a76d16a718029f4335dca%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B31%2Cnull%2C2592000%5D%22%3B%7D; _csrf=c116039b892d0bf6cd3e818e93fbffbde32b457b94759db851da34a0dadbb62ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22jDzigVZfuQy3h5XFjDTTofOFRnKJcy_r%22%3B%7D',
+    'HTTP_HOST' => 'game.miraclechd.co',
+    'HTTP_REFERER' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36',
+    'HTTP_X_HTTPS' => '1',
+    'PATH' => '/bin:/usr/bin',
+    'PHP_INI_SCAN_DIR' => '/opt/cpanel/ea-php72/root/etc:/opt/cpanel/ea-php72/root/etc/php.d:.',
+    'QUERY_STRING' => '',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'REDIRECT_SCRIPT_URL' => '/no-copy/web/site/additional',
+    'REDIRECT_SSL_TLS_SNI' => 'game.miraclechd.co',
+    'REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'XTMArvYDsuHliMV5wKqv4AAAABE',
+    'REDIRECT_URL' => '/no-copy/web/site/additional',
+    'REMOTE_ADDR' => '182.74.128.50',
+    'REMOTE_PORT' => '46313',
+    'REQUEST_METHOD' => 'GET',
+    'REQUEST_SCHEME' => 'https',
+    'REQUEST_URI' => '/no-copy/web/site/additional',
+    'SCRIPT_FILENAME' => '/home/gamemiraclechd/public_html/no-copy/web/index.php',
+    'SCRIPT_NAME' => '/no-copy/web/index.php',
+    'SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'SCRIPT_URL' => '/no-copy/web/site/additional',
+    'SERVER_ADDR' => '210.16.103.166',
+    'SERVER_ADMIN' => 'webmaster@game.miraclechd.co',
+    'SERVER_NAME' => 'game.miraclechd.co',
+    'SERVER_PORT' => '443',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SSL_TLS_SNI' => 'game.miraclechd.co',
+    'TZ' => 'Etc/UTC',
+    'UNIQUE_ID' => 'XTMArvYDsuHliMV5wKqv4AAAABE',
+    'PHP_SELF' => '/no-copy/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1563623599.9104640483856201171875,
+    'REQUEST_TIME' => 1563623599,
+    'argv' => [],
+    'argc' => 0,
+]
+[20-Jul-2019 11:53:23 UTC] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 147. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 147. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/web/index.php(12): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'CONTEXT_DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTPS' => 'on',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '__cfduid=d8a6cf15e14723261dfa795a8d6afc1f01562240087; PHPSESSID=503188b6ea53112d1d9d09f45e5e069f; _identity=0649c5f3ff0549e3e006864cf81111898a6b85a29728a76d16a718029f4335dca%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B31%2Cnull%2C2592000%5D%22%3B%7D; _csrf=c116039b892d0bf6cd3e818e93fbffbde32b457b94759db851da34a0dadbb62ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22jDzigVZfuQy3h5XFjDTTofOFRnKJcy_r%22%3B%7D',
+    'HTTP_HOST' => 'game.miraclechd.co',
+    'HTTP_REFERER' => 'https://game.miraclechd.co/no-copy/web/site/login',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36',
+    'HTTP_X_HTTPS' => '1',
+    'PATH' => '/bin:/usr/bin',
+    'PHP_INI_SCAN_DIR' => '/opt/cpanel/ea-php72/root/etc:/opt/cpanel/ea-php72/root/etc/php.d:.',
+    'QUERY_STRING' => '',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'REDIRECT_SCRIPT_URL' => '/no-copy/web/site/additional',
+    'REDIRECT_SSL_TLS_SNI' => 'game.miraclechd.co',
+    'REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'XTMAsvYDsuHliMV5wKqv4QAAABE',
+    'REDIRECT_URL' => '/no-copy/web/site/additional',
+    'REMOTE_ADDR' => '182.74.128.50',
+    'REMOTE_PORT' => '46313',
+    'REQUEST_METHOD' => 'GET',
+    'REQUEST_SCHEME' => 'https',
+    'REQUEST_URI' => '/no-copy/web/site/additional',
+    'SCRIPT_FILENAME' => '/home/gamemiraclechd/public_html/no-copy/web/index.php',
+    'SCRIPT_NAME' => '/no-copy/web/index.php',
+    'SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'SCRIPT_URL' => '/no-copy/web/site/additional',
+    'SERVER_ADDR' => '210.16.103.166',
+    'SERVER_ADMIN' => 'webmaster@game.miraclechd.co',
+    'SERVER_NAME' => 'game.miraclechd.co',
+    'SERVER_PORT' => '443',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SSL_TLS_SNI' => 'game.miraclechd.co',
+    'TZ' => 'Etc/UTC',
+    'UNIQUE_ID' => 'XTMAsvYDsuHliMV5wKqv4QAAABE',
+    'PHP_SELF' => '/no-copy/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1563623603.2067639827728271484375,
+    'REQUEST_TIME' => 1563623603,
+    'argv' => [],
+    'argc' => 0,
+]
+[20-Jul-2019 11:53:57 UTC] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 146. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/gamemiraclechd/public_html/no-copy/controllers/SiteController.php on line 146. in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/gamemiraclechd/public_html/no-copy/web/index.php(12): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'CONTEXT_DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'CONTEXT_PREFIX' => '',
+    'DOCUMENT_ROOT' => '/home/gamemiraclechd/public_html',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'HTTPS' => 'on',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_COOKIE' => '__cfduid=d8a6cf15e14723261dfa795a8d6afc1f01562240087; PHPSESSID=503188b6ea53112d1d9d09f45e5e069f; _identity=0649c5f3ff0549e3e006864cf81111898a6b85a29728a76d16a718029f4335dca%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B31%2Cnull%2C2592000%5D%22%3B%7D; _csrf=c116039b892d0bf6cd3e818e93fbffbde32b457b94759db851da34a0dadbb62ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22jDzigVZfuQy3h5XFjDTTofOFRnKJcy_r%22%3B%7D',
+    'HTTP_HOST' => 'game.miraclechd.co',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36',
+    'HTTP_X_HTTPS' => '1',
+    'PATH' => '/bin:/usr/bin',
+    'PHP_INI_SCAN_DIR' => '/opt/cpanel/ea-php72/root/etc:/opt/cpanel/ea-php72/root/etc/php.d:.',
+    'QUERY_STRING' => '',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'REDIRECT_SCRIPT_URL' => '/no-copy/web/site/additional',
+    'REDIRECT_SSL_TLS_SNI' => 'game.miraclechd.co',
+    'REDIRECT_STATUS' => '200',
+    'REDIRECT_UNIQUE_ID' => 'XTMA1Tszqr1Y3c9FgV4L8gAAABU',
+    'REDIRECT_URL' => '/no-copy/web/site/additional',
+    'REMOTE_ADDR' => '182.74.128.50',
+    'REMOTE_PORT' => '22847',
+    'REQUEST_METHOD' => 'GET',
+    'REQUEST_SCHEME' => 'https',
+    'REQUEST_URI' => '/no-copy/web/site/additional',
+    'SCRIPT_FILENAME' => '/home/gamemiraclechd/public_html/no-copy/web/index.php',
+    'SCRIPT_NAME' => '/no-copy/web/index.php',
+    'SCRIPT_URI' => 'https://game.miraclechd.co/no-copy/web/site/additional',
+    'SCRIPT_URL' => '/no-copy/web/site/additional',
+    'SERVER_ADDR' => '210.16.103.166',
+    'SERVER_ADMIN' => 'webmaster@game.miraclechd.co',
+    'SERVER_NAME' => 'game.miraclechd.co',
+    'SERVER_PORT' => '443',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SSL_TLS_SNI' => 'game.miraclechd.co',
+    'TZ' => 'Etc/UTC',
+    'UNIQUE_ID' => 'XTMA1Tszqr1Y3c9FgV4L8gAAABU',
+    'PHP_SELF' => '/no-copy/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1563623637.688868045806884765625,
+    'REQUEST_TIME' => 1563623637,
+    'argv' => [],
+    'argc' => 0,
+]
+[25-Jul-2019 10:55:04 UTC] PHP Fatal error:  Uncaught yii\base\ErrorException: session_write_close(): write failed: No space left on device (28) in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Session.php:192
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_write_c...', '/home/gamemirac...', 192, Array)
+#1 /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Session.php(192): session_write_close()
+#2 [internal function]: yii\web\Session->close()
+#3 {main}
+  thrown in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2/web/Session.php on line 192
+[25-Jul-2019 12:37:26 UTC] PHP Warning:  Unknown: POST data can't be buffered; all data discarded in Unknown on line 0
+[25-Jul-2019 12:37:27 UTC] PHP Warning:  file_put_contents(): Only 0 of 32494 bytes written, possibly out of free disk space in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2-debug/src/LogTarget.php on line 67
+[25-Jul-2019 12:37:27 UTC] PHP Warning:  file_put_contents(): Only 0 of 33480 bytes written, possibly out of free disk space in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2-debug/src/LogTarget.php on line 67
+[25-Jul-2019 12:37:27 UTC] PHP Warning:  file_put_contents(): Only 0 of 33481 bytes written, possibly out of free disk space in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2-debug/src/LogTarget.php on line 67
+[25-Jul-2019 12:37:30 UTC] PHP Warning:  Unknown: POST data can't be buffered; all data discarded in Unknown on line 0
+[25-Jul-2019 12:37:30 UTC] PHP Warning:  file_put_contents(): Only 0 of 32482 bytes written, possibly out of free disk space in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2-debug/src/LogTarget.php on line 67
+[25-Jul-2019 12:37:30 UTC] PHP Warning:  file_put_contents(): Only 0 of 33476 bytes written, possibly out of free disk space in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2-debug/src/LogTarget.php on line 67
+[25-Jul-2019 12:37:30 UTC] PHP Warning:  file_put_contents(): Only 0 of 33475 bytes written, possibly out of free disk space in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2-debug/src/LogTarget.php on line 67
+[25-Jul-2019 12:37:35 UTC] PHP Warning:  Unknown: POST data can't be buffered; all data discarded in Unknown on line 0
+[25-Jul-2019 12:37:35 UTC] PHP Warning:  file_put_contents(): Only 0 of 32505 bytes written, possibly out of free disk space in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2-debug/src/LogTarget.php on line 67
+[25-Jul-2019 12:37:35 UTC] PHP Warning:  file_put_contents(): Only 0 of 33493 bytes written, possibly out of free disk space in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2-debug/src/LogTarget.php on line 67
+[25-Jul-2019 12:37:35 UTC] PHP Warning:  file_put_contents(): Only 0 of 33495 bytes written, possibly out of free disk space in /home/gamemiraclechd/public_html/no-copy/vendor/yiisoft/yii2-debug/src/LogTarget.php on line 67
+[25-Jul-2019 12:37:44 UTC] PHP Warning:  Unknown: POST data can't be buffered; all data discarded in Unknown on line 0
+[25-Jul-2019 12:37:45 UTC] PHP[26-Sep-2019 06:02:35 America/New_York] PHP Parse error:  syntax error, unexpected '2' (T_LNUMBER) in /home/nocowjet/public_html/config/web.php on line 3
+[19-Nov-2019 06:37:36 America/New_York] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/nocowjet/public_html/controllers/SiteController.php on line 302. in /home/nocowjet/public_html/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/nocowjet/public_html/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/nocowjet/public_html/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /home/nocowjet/public_html/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\base\ErrorException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\ErrorException))
+#4 {main}
+Previous exception:
+yii\base\ErrorException: Undefined variable: category_type in /home/nocowjet/public_html/controllers/SiteController.php:304
+Stack trace:
+#0 /home/nocowjet/public_html/controllers/SiteController.php(304): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/home/nocowjet/...', 304, Array)
+#1 [internal function]: app\controllers\SiteController->actionRegister('HdjLMBb5')
+#2 /home/nocowjet/public_html/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /home/nocowjet/public_html/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /home/nocowjet/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('register', Array)
+#5 /home/nocowjet/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('site/register', Array)
+#6 /home/nocowjet/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /home/nocowjet/public_html/web/index.php(12): yii\base\Application->run()
+#8 {main}
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on',
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '501',
+    'HTTP_COOKIE' => 'PHPSESSID=67e09bb9fa85639c774ec2ad5317545a; _csrf=3d0c3cf0ea3f9f97896c999e2c113fbad857beef83303e44c6e1150767c8c416a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%229OP6UWzzhfCgn9khbGUBHGir1WzzkUQ8%22%3B%7D; cpsession=nocowjet%3axzZ2j_wQUQ3p_oXv%2c8c55f8f54dc4623a5acb6f222e47df33; timezone=Asia/Kolkata; _identity=467a90d3ba9d282f3a5a26bad21645541d8489bfde5f2431a08e29ff3c278362a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B64%2Cnull%2C2592000%5D%22%3B%7D',
+    'HTTP_HOST' => 'nocopycopy.ng',
+    'HTTP_REFERER' => 'https://nocopycopy.ng/web/site/register?token=HdjLMBb5',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0',
+    'HTTP_X_FORWARDED_FOR' => '182.74.128.50',
+    'HTTP_ORIGIN' => 'https://nocopycopy.ng',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_TE' => 'trailers',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_HTTPS' => 'on',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_SERVER_PORT' => '443',
+    'REDIRECT_UNIQUE_ID' => 'XdPUAL2d9dn9yQvLJMQHnAAAAUI',
+    'REDIRECT_SCRIPT_URL' => '/web/site/register',
+    'REDIRECT_SCRIPT_URI' => 'https://nocopycopy.ng/web/site/register',
+    'REDIRECT_STATUS' => '200',
+    'HTTPS' => 'on',
+    'SERVER_PORT' => '443',
+    'UNIQUE_ID' => 'XdPUAL2d9dn9yQvLJMQHnAAAAUI',
+    'SCRIPT_URL' => '/web/site/register',
+    'SCRIPT_URI' => 'https://nocopycopy.ng/web/site/register',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'nocopycopy.ng',
+    'SERVER_ADDR' => '162.213.253.37',
+    'REMOTE_ADDR' => '182.74.128.50',
+    'DOCUMENT_ROOT' => '/home/nocowjet/public_html',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/nocowjet/public_html',
+    'SERVER_ADMIN' => 'webmaster@nocopycopy.ng',
+    'SCRIPT_FILENAME' => '/home/nocowjet/public_html/web/index.php',
+    'REMOTE_PORT' => '52324',
+    'REDIRECT_URL' => '/web/site/register',
+    'REDIRECT_QUERY_STRING' => 'token=HdjLMBb5',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => 'token=HdjLMBb5',
+    'REQUEST_URI' => '/web/site/register?token=HdjLMBb5',
+    'SCRIPT_NAME' => '/web/index.php',
+    'PHP_SELF' => '/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1574163456.346105098724365234375,
+    'REQUEST_TIME' => 1574163456,
+]
+[25-Nov-2019 04:30:40 America/New_York] PHP Warning:  The use statement with non-compound name 'Yii' has no effect in /home/nocowjet/public_html/mail/customerServiceEmail-html.php on line 3
+[02-Dec-2019 01:38:46 America/New_York] PHP Warning:  The use statement with non-compound name 'Yii' has no effect in /home/nocowjet/public_html/mail/customerServiceEmail-html.php on line 3
+[17-Dec-2019 00:23:51 America/New_York] PHP Parse error:  syntax error, unexpected 'GH22YZHYCMI' (T_STRING) in /home/nocowjet/staging.nocopycopy.ng/config/db.php on line 38
+[17-Dec-2019 00:23:51 America/New_York] PHP Parse error:  syntax error, unexpected 'GH22YZHYCMI' (T_STRING) in /home/nocowjet/staging.nocopycopy.ng/config/db.php on line 38
+[17-Dec-2019 00:24:19 America/New_York] PHP Parse error:  syntax error, unexpected 'GH22YZHYCMI' (T_STRING) in /home/nocowjet/staging.nocopycopy.ng/config/db.php on line 38
+[17-Dec-2019 00:24:21 America/New_York] PHP Parse error:  syntax error, unexpected 'GH22YZHYCMI' (T_STRING) in /home/nocowjet/staging.nocopycopy.ng/config/db.php on line 38
+[17-Dec-2019 00:24:27 America/New_York] PHP Parse error:  syntax error, unexpected 'GH22YZHYCMI' (T_STRING) in /home/nocowjet/staging.nocopycopy.ng/config/db.php on line 38
+[25-Dec-2019 07:11:05 America/New_York] An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/nocowjet/staging.nocopycopy.ng/models/SendReferalCodeForm.php on line 132. in /home/nocowjet/staging.nocopycopy.ng/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/nocowjet/staging.nocopycopy.ng/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/nocowjet/staging.nocopycopy.ng/vendor/yiisoft/yii2/web/ErrorHandler.php(135): yii\web\Response->send()
+#2 /home/nocowjet/staging.nocopycopy.ng/vendor/yiisoft/yii2/base/ErrorHandler.php(111): yii\web\ErrorHandler->renderException(Object(yii\web\HeadersAlreadySentException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\HeadersAlreadySentException))
+#4 {main}
+Previous exception:
+yii\web\HeadersAlreadySentException: Headers already sent in /home/nocowjet/staging.nocopycopy.ng/models/SendReferalCodeForm.php on line 132. in /home/nocowjet/staging.nocopycopy.ng/vendor/yiisoft/yii2/web/Response.php:366
+Stack trace:
+#0 /home/nocowjet/staging.nocopycopy.ng/vendor/yiisoft/yii2/web/Response.php(339): yii\web\Response->sendHeaders()
+#1 /home/nocowjet/staging.nocopycopy.ng/vendor/yiisoft/yii2/base/Application.php(392): yii\web\Response->send()
+#2 /home/nocowjet/staging.nocopycopy.ng/web/index.php(12): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'LSPHP_ENABLE_USER_INI' => 'on',
+    'PATH' => '/usr/local/bin:/usr/bin:/bin',
+    'TEMP' => '/tmp',
+    'TMP' => '/tmp',
+    'TMPDIR' => '/tmp',
+    'PWD' => '/',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9',
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+    'CONTENT_LENGTH' => '152',
+    'HTTP_COOKIE' => 'PHPSESSID=616af5ea3d95483bdae1923af13fb9f1; _identity=467a90d3ba9d282f3a5a26bad21645541d8489bfde5f2431a08e29ff3c278362a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B64%2Cnull%2C2592000%5D%22%3B%7D; _csrf=e5029a35e758d805be83c33adc677113117ce2dee3db8d7fd7f12ca21eed064aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226W_urmpzJqKQ7nTt6JiqbYGEtOKQ4wdc%22%3B%7D',
+    'HTTP_HOST' => 'www.staging.nocopycopy.ng',
+    'HTTP_REFERER' => 'https://www.staging.nocopycopy.ng/web/user/send-invitation-link',
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_X_FORWARDED_FOR' => '157.39.48.142',
+    'HTTP_ORIGIN' => 'https://www.staging.nocopycopy.ng',
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+    'HTTP_SEC_FETCH_USER' => '?1',
+    'HTTP_SEC_FETCH_SITE' => 'same-origin',
+    'HTTP_SEC_FETCH_MODE' => 'navigate',
+    'HTTP_X_FORWARDED_PROTO' => 'https',
+    'HTTP_X_HTTPS' => 'on',
+    'REDIRECT_HTTPS' => 'on',
+    'REDIRECT_SERVER_PORT' => '443',
+    'REDIRECT_UNIQUE_ID' => 'XgNR2MNce3PkJ1sB4qQllAAAAMs',
+    'REDIRECT_SCRIPT_URL' => '/web/user/send-invitation-link',
+    'REDIRECT_SCRIPT_URI' => 'https://www.staging.nocopycopy.ng/web/user/send-invitation-link',
+    'REDIRECT_STATUS' => '200',
+    'HTTPS' => 'on',
+    'SERVER_PORT' => '443',
+    'UNIQUE_ID' => 'XgNR2MNce3PkJ1sB4qQllAAAAMs',
+    'SCRIPT_URL' => '/web/user/send-invitation-link',
+    'SCRIPT_URI' => 'https://www.staging.nocopycopy.ng/web/user/send-invitation-link',
+    'SERVER_SIGNATURE' => '',
+    'SERVER_SOFTWARE' => 'Apache',
+    'SERVER_NAME' => 'www.staging.nocopycopy.ng',
+    'SERVER_ADDR' => '162.213.253.37',
+    'REMOTE_ADDR' => '157.39.48.142',
+    'DOCUMENT_ROOT' => '/home/nocowjet/staging.nocopycopy.ng',
+    'REQUEST_SCHEME' => 'https',
+    'CONTEXT_PREFIX' => '',
+    'CONTEXT_DOCUMENT_ROOT' => '/home/nocowjet/staging.nocopycopy.ng',
+    'SERVER_ADMIN' => 'webmaster@staging.nocopycopy.ng',
+    'SCRIPT_FILENAME' => '/home/nocowjet/staging.nocopycopy.ng/web/index.php',
+    'REMOTE_PORT' => '47408',
+    'REDIRECT_URL' => '/web/user/send-invitation-link',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'REQUEST_METHOD' => 'POST',
+    'QUERY_STRING' => '',
+    'REQUEST_URI' => '/web/user/send-invitation-link',
+    'SCRIPT_NAME' => '/web/index.php',
+    'PHP_SELF' => '/web/index.php',
+    'REQUEST_TIME_FLOAT' => 1577275864.99013996124267578125,
+    'REQUEST_TIME' => 1577275864,
+]

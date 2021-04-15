@@ -1,0 +1,13 @@
+form div.required label.control-label:after {
+
+  content:" * ";
+
+  color:red;
+
+}
+.main-header .navbar-nav {
+  flex-direction: unset !important;
+}
+.main-header .navbar{
+  display:block !important;
+}
