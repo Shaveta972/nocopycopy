@@ -1,0 +1,629 @@
+<?php
+namespace app\controllers;
+
+use app\models\UserRecords;
+use app\models\UserRequest;
+use app\models\User;
+use Yii;
+use yii\helpers\VarDumper;
+use yii\web\NotFoundHttpException;
+use yii\web\Response;
+use yii\web\UploadedFile;
+use yii\widgets\ActiveForm;
+use yii\helpers\StringHelper;
+use app\models\FileModelForm;
+use yii\data\ActiveDataProvider;
+use app\models\CreditScanSettings;
+use app\models\Subjects;
+use kartik\mpdf\Pdf;
+
+class ScanController extends BaseController
+{
+
+    public $layout = 'inner-layout';
+
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction'
+            ]
+        ];
+    }
+
+    public function beforeAction($action)
+    {
+        if ($action->id === 'completed') {
+            $this->enableCsrfValidation = false;
+        }
+        if($action->id=='status'){
+            $this->enableCsrfValidation = false;
+            
+        }
+        return parent::beforeAction($action);
+    }
+
+    public function getAccessToken()
+    {
+        $client = new \GuzzleHttp\Client([
+            'headers' => [
+                'Content-Type' => 'application/json'
+            ],
+            'verify' => false
+        ]);
+        //https://id.copyleaks.com/v3/account/login/api
+    
+        
+        $response = $client->request('POST', 'https://id.copyleaks.com/v3/account/login/api', [
+            'body' => json_encode([
+                'email' => Yii::$app->params['copyleaks_email'],
+                "key" => Yii::$app->params['copyleaks_apikey']
+            ])
+        ]);
+        $contents = $response->getBody()->getContents();
+        $response = json_decode($contents);
+      //  print_R($response);
+        //die();
+        return $response->access_token;
+    }
+    
+    public function actionStatus(){
+    $request = Yii::$app->request;
+    $response = Yii::$app->response;
+    $get = $request->get();
+    \Yii::warning('******  STATUS REQUEST ******** ' . VarDumper::dumpAsString($get));
+    \Yii::warning('******  STATUS REPONSES ******** ' . VarDumper::dumpAsString($response));
+    }
+
+    public function actionResults($id)
+    {
+        $userRecord = UserRecords::findOne([
+            'process_id' => $id
+        ]);
+
+        if ($userRecord === null) {
+            throw new NotFoundHttpException();
+        }
+    //$sumdata= UserRequest::find()->where(['process_id' => $id ])->sum('num');
+       $average_accuracy = UserRequest::find()->where(['process_id' => $id ])->average('percents');
+       $count_records =    UserRequest::find()->where(['process_id' => $id])->count();
+
+        $recordDataProvider = new ActiveDataProvider([
+            'query' => UserRequest::find()->where([
+                'process_id' => $id
+            ])->orderBy(['title' => SORT_ASC ])//->distinct()->groupBy('url')
+        ]);
+ 
+        $exportDataProvider = new ActiveDataProvider([
+            'query' => UserRequest::find()->where([
+                'process_id' => $id
+            ]),
+            'pagination'=>false
+        ]);
+
+        return $this->render('/scan/results', [
+            'recordDataProvider' => $recordDataProvider,
+            'exportDataProvider' => $exportDataProvider,
+            'user_request' => $userRecord,
+            'redirect' => '0',
+            'average_accuracy' => $average_accuracy,
+            'count_records' => $count_records
+
+        ]);
+    }
+
+    public function actionAjaxSendRequest()
+    {
+        try {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            $model = new UserRecords();  
+            $userModel= new User();
+            $id=Yii::$app->user->identity->id;
+            $user_type = Yii::$app->user->identity->is_subadmin;
+            $credit_account_type = Yii::$app->user->identity->credit_type;
+            if (Yii::$app->request->isAjax) {
+            
+                if ($model->load(Yii::$app->request->post())) {
+                    $getcredits= CreditScanSettings::find()->select('credit_value')->where(['doc_type' => $model->process_type])->one();
+                    $credit_value= $getcredits->credit_value;
+                    $account_type = Yii::$app->user->identity->credit_type;
+                    $credit_type = Yii::$app->user->identity->credit_type;
+
+                       
+                    if ($user_type == User::TEACHER_SUBADMIN || $user_type == User::STAFF_SUBADMIN) {
+                        if($credit_account_type == User::CREDITS_ALLOCATED) {
+                            $allocatedCredits=  Yii::$app->user->identity->allocated_credits;
+                            $credits= $userModel->getAllocatedRemainingCredits($id);
+                            if($credits == 0 || $credits < $credit_value){
+                                return [
+                                    'data' => [
+                                        'error' => true,
+                                        'id' => '0',
+                                        'redirect_uri' => 'saved1',
+                                        'message' =>  "You don't have enough credits to complete the request. You need to   purchase credits in order to complete the request."
+                                    ]
+                                ];
+                            }
+                        }
+
+                        if($credit_account_type == User::CREDITS_PERSONAL) {
+                            $personalCredits =  $userModel->getPersonalCredits($id);
+                            $credits= $userModel->getPersonalRemainingCredits($id);
+                            if($credits == 0 || $credits < $credit_value){
+                                return [
+                                    'data' => [
+                                        'error' => true,
+                                        'id' => '0',
+                                        'redirect_uri' => 'saved1',
+                                        'message' =>  'You have no credits. You need to purchase credits in order to complete the request'
+                                    ]
+                                ];
+                            }
+                        }
+                    }
+
+
+
+            if (Yii::$app->user->identity->is_subadmin == User::STUDENT_SUBADMIN) {
+                // echo $model->subject_code;
+                if (isset($model->subject_code) && (!empty($model->subject_code))) {
+                    $checkSubjectCode= Subjects::find()->where(['subject_code'=> $model->subject_code])->one();
+                    if (!$checkSubjectCode) {
+                        return [
+                        'data' => [
+                            'error' => true,
+                            'id' => '0',
+                            'redirect_uri' => 'null',
+                            'message' =>  'Please enter valid subject code.'
+                        ]
+                    ];
+                    } else {
+                        $account_type = Yii::$app->user->identity->account_type;
+                        $credit_type = Yii::$app->user->identity->credit_type;
+                    }
+                } else {
+                    $account_type = User::CREDITS_PERSONAL;
+                    $credit_type = User::CREDITS_PERSONAL;
+                }
+            }
+                
+           
+            if (Yii::$app->user->identity->parent_id == 0 ) {
+                if($credit_account_type == User::CREDITS_PERSONAL) {
+                   $credits= $userModel->sumParentCredits($id);
+                   $remaining_credits= $userModel->getParentRemainingCredits($id);
+                    if($remaining_credits == 0 || $remaining_credits < $credit_value){
+                        return [
+                            'data' => [
+                                'error' => true,
+                                'id' => '0',
+                                'redirect_uri' => 'saved1',
+                                'message' =>  "You don't have enough credits to complete the request. You need to   purchase credits in order to complete the request."
+                            ]
+                        ];
+                    }
+                }
+            }
+
+                    $access_token = $this->getAccessToken();
+                    //echo $access_token;
+                  //  die();
+                    if (! empty($access_token)) {
+                        $client = new \GuzzleHttp\Client([
+                            'headers' => [
+                                'Content-Type' => 'application/json',
+                                'Authorization' => 'Bearer ' . $access_token
+                               // 'copyleaks-http-completion-callback' => 
+                            ],
+                            'verify' => false
+                        ]);
+
+                        if ($model->process_type == 'text') {
+                            $response = $client->request('POST', 'https://api.copyleaks.com/v1/education/create-by-text', [
+                                'body' => $model->process_value
+                            ]);
+                           
+                            
+                        }
+                        
+                        //https://api.copyleaks.com/v1/education/create-by-url
+                        //
+                        if ($model->process_type == 'url') {
+                            $scanID='dummy12378';
+                            $response = $client->request('PUT', 'https://api.copyleaks.com/v3/education/submit/url/'.$scanID , [
+                                'body' => json_encode([
+                                    'url' => $model->process_value,
+                                     'properties' => [ 
+                                         "sandbox" => 'true',
+                                         "webhooks" =>[
+                                                    'status'=> \Yii::$app->params['WEB_URL'] . 'scan/status?status={STATUS}&scanID='.$scanID,
+                                                    'completed' => \Yii::$app->params['WEB_URL'] . 'scan/completed?scanID='.$scanID
+                                                    //"https://yoursite.com/webhook/{STATUS}/my-custom-id"
+                                                    //https://yoursite.com/copyleaks/completed/SCAN_ID
+    ]
+  ]
+                                ])
+                            ]);
+                           
+                        }
+
+                        if ($response->getStatusCode() == 201) {
+                            //$contents = $response->getBody()->getContents();
+                            //$response = json_decode($contents);
+                            if (! empty($scanID)) {
+                                $userRecord = new UserRecords();
+                                $userRecord->user_id = Yii::$app->user->id;
+                                $userRecord->subject_code = isset($model->subject_code) ? $model->subject_code : null;
+                                $userRecord->process_id = $scanID;
+                                $userRecord->process_type = $model->process_type;
+                                $userRecord->process_value = $model->process_value;
+                                $userRecord->user_id = Yii::$app->user->id;
+                                $userRecord->credit_used= $credit_value;
+                                $userRecord->account_type= $account_type;
+                                $userRecord->credit_type=  $credit_type;
+
+                                if ($userRecord->save()) {
+                                  //  \Yii::$app->session->setFlash('success', \Yii::t('app', 'Your request has been submitted'));
+                                    return [
+                                        'data' => [
+                                            'success' => true,
+                                            'id' => $scanID,
+                                            'message' => 'Model has been saved.'
+                                        ],
+                                        'code' => '0'
+                                    ];
+                                } else {
+                                  //  \Yii::$app->session->setFlash('error',  );
+                                    return [
+                                        'data' => [
+                                            'error' => true,
+                                            'id' => '0',
+                                            'redirect_uri' => 'null',
+                                            'message' =>  $userRecord->getFirstErrors()
+                                        ]
+                                    ];
+                                }
+                            } else {
+                                \Yii::$app->session->setFlash('error', \Yii::t('app', 'Something went wrong. Please try again later.'));
+                                return [
+                                    'data' => [
+                                        'error' => true,
+                                        'id' => '0',
+                                        'redirect_uri' => 'null',
+                                        'message' => 'No Request Created.'
+                                    ],
+                                    'code' => '0'
+                                ];
+                            }
+                        }
+                        else{
+                            return [
+                                'data' => [
+                                    'error' => true,
+                                    'id' => '0',
+                                    'redirect_uri' => 'null',
+                                    'message' => 'An error occured77.'
+                                ],
+                                'code' => $response
+                            ];
+                        }
+                    } else {
+                        return [
+                            'data' => [
+                                'error' => true,
+                                'id' =>'0',
+                                'redirect_uri' => 'null',
+                                'message' => 'An error occured78.'
+                            ],
+                            'code' => 0 
+                        ];
+                    }
+                }
+            }
+        } catch (\Exception $e) {
+           // \Yii::$app->session->setFlash('error', \Yii::t('app', $e->getMessage()) );
+            return [
+                'data' => [
+                    'error' => true,
+                    'id' => '0',
+                    'redirect_uri' => 'null',
+                    'message' => 'Something went wrong, Please try again later',
+                    'exception_message' => \Yii::t('app', $e->getMessage())
+                ],
+                'code' => $e->getCode()
+            ];
+        }
+    }
+    public function actionProcess(){
+    
+        return $this->render('/scan/results');
+    }
+
+    public function actionCompleted()
+    
+    {
+        
+    $request = Yii::$app->request;
+    $response = Yii::$app->response;
+    $get = $request->get();
+    \Yii::warning('******  STATUS COMPLETED REQUEST ******** ' . VarDumper::dumpAsString($get));
+    \Yii::warning('******  STATUS COMPLETED REPONSES ******** ' . VarDumper::dumpAsString($response));
+    die();
+        
+     //   $pid
+        \Yii::$app->response->format = 'json';
+        $userRecord = UserRecords::findOne([
+            'process_id' => $pid
+        ]);
+
+        if ($userRecord === null) {
+            return [
+                'status' => "NOK",
+                'message' => "User Record not found"
+            ];
+        }
+
+        if ($userRecord->state_id === UserRecords::STATE_COMPLETED) {
+            return [
+                'status' => "NOK",
+                'message' => "Record already processed"
+            ];
+        }
+
+        $access_token = $this->getAccessToken();
+        $client = new \GuzzleHttp\Client([
+            'headers' => [
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer ' . $access_token
+            ],
+            'verify' => false
+        ]);
+
+        $response = $client->request('GET', 'https://api.copyleaks.com/v2/education/' . $pid . '/result');
+
+
+        if ($response->getStatusCode() == 200) {
+            $body = $response->getBody();
+            $data = json_decode($body, true);
+            \Yii::warning('****** PARSED REPONSES ******** ' . VarDumper::dumpAsString($data));
+            if (isset($data['results'])) {
+                    $data = $data['results'];
+                if ($data) {
+                    \Yii::warning('****** CHUNKED DATA ******** '.VarDumper::dumpAsString($data));
+                    foreach ($data as $result) {
+                        
+                        // if (!empty($result['url'])) {
+                            $userRequest = new UserRequest();
+                            $userRequest->process_id = $userRecord->process_id;
+                            $userRequest->url = $result['url'];
+                            $userRequest->percents = (string) $result['totalMatchedPercents'];
+                            $userRequest->number_copied_words = $result['totalMatchedWords'];
+                            $userRequest->cached_version = $result['report'];
+                            $userRequest->title = $result['title'];
+                            $userRequest->introduction = StringHelper::truncate($result['introduction'], 512);
+                            if (! $userRequest->save()) {
+                                \Yii::error('****** error while saving the user request ******** ' . VarDumper::dumpAsString($userRequest->errors));
+                            }
+                      //  }
+                    }
+                    $userRecord->total_results = count($data);
+                    $userRecord->state_id = UserRecords::STATE_COMPLETED;
+                    if (! $userRecord->save()) {
+                        \Yii::error('****** error while saving the user records ******** ' . VarDumper::dumpAsString($userRecord->errors));
+                    }
+                } else {
+                    \Yii::error('****** no results found ******** ');
+                    $userRecord->state_id = UserRecords::STATE_COMPLETED;
+                    if (! $userRecord->save()) {
+                        \Yii::error('****** error while saving the user records ******** ' . VarDumper::dumpAsString($userRecord->errors));
+                    }
+                }
+            } else {
+
+                return [
+                    'status' => "NOK"
+                ];
+            }
+        }
+         \Yii::$app->session->setFlash('success', \Yii::t('app', 'Records are available now. Please check'));
+        return [
+            'status' => "OK"
+        ];
+    }
+
+    public function actionProcessFile()
+    {
+        \Yii::$app->response->format = 'json';
+       
+        $userModel= new User();
+        $account_type = Yii::$app->user->identity->account_type;
+        $credit_type = Yii::$app->user->identity->credit_type;
+
+    //     $remaining_credits = $userModel->getRemainingCredits(Yii::$app->user->identity->id);
+    //     if ( isset ($remaining_credits) && $remaining_credits == 0  ) {
+    //         return [
+    //           'data' => [
+    //               'error' => true,
+    //               'id' => '0',
+    //               'redirect_uri' => 'null',
+    //               'message' =>  'You have no credits. You need to purchase credits in order to complete the request'
+    //           ]
+    //       ];
+    //   }
+        $model = new FileModelForm();
+        if ($model->load(\Yii::$app->request->post())) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+            $fileName = $model->upload();
+
+            $getcredits= CreditScanSettings::find()->select('credit_value')->where(['doc_type' => $model->process_type])->one();
+            $credits= $getcredits->credit_value;
+            $account_type = Yii::$app->user->identity->account_type;
+            $credit_type = Yii::$app->user->identity->credit_type;
+            // if ($credits > $remaining_credits) {
+            //     return [
+            //         'data' => [
+            //             'error' => true,
+            //             'id' => '0',
+            //             'redirect_uri' => 'null',
+            //             'message' =>  'You have no credits. You need to purchase credits in order to complete the request the scan'
+            //         ]
+            //     ];
+            // }
+            // if (Yii::$app->user->identity->is_subadmin == User::STUDENT_SUBADMIN) {
+            //     if (isset($model->subject_code) && (!empty($model->subject_code))) {
+            //         $checkSubjectCode= Subjects::find()->where(['subject_code'=> $model->subject_code])->one();
+            //         if (!$checkSubjectCode) {
+            //             return [
+            //             'data' => [
+            //                 'error' => true,
+            //                 'id' => '0',
+            //                 'redirect_uri' => 'null',
+            //                 'message' =>  'Please enter valid subject code.'
+            //             ]
+            //         ];
+            //         } else {
+            //             $account_type = Yii::$app->user->identity->account_type;
+            //             $credit_type = Yii::$app->user->identity->credit_type;
+            //         }
+            //     } else {
+            //         $account_type = User::CREDITS_PERSONAL;
+            //         $credit_type = User::CREDITS_PERSONAL;
+            //     }
+            // }
+
+
+            if ($fileName) {
+                $access_token = $this->getAccessToken();
+                $client = new \GuzzleHttp\Client([
+                    'headers' => [
+                        'Content-Type' => 'application/json',
+                        'Authorization' => 'Bearer ' . $access_token,
+                        'copyleaks-http-completion-callback' => \Yii::$app->params['WEB_URL'] . 'scan/completed?pid={PID}'
+                    ],
+                    'verify' => false
+                ]);
+
+// print_R($client);
+// die();
+                $response = $client->request('POST', 'https://api.copyleaks.com/v1/education/create-by-file', [
+                    'multipart' => [
+                        [
+                            'name' => 'FileContents',
+                            'contents' => file_get_contents(\Yii::getAlias('@uploads') . '/' . $fileName),
+                            'filename' => $fileName
+                        ]
+                    ]
+                ]);
+
+
+                if ($response->getStatusCode() == 200) {
+                    $body = $response->getBody();
+                    $data = json_decode($body);
+                    $userRecord = new UserRecords();
+                    $userRecord->user_id = Yii::$app->user->id;
+                    $userRecord->process_id = $data->ProcessId;
+                    $userRecord->process_type = $model->process_type;
+                    $userRecord->process_value = $fileName;
+                    $userRecord->user_id = Yii::$app->user->id;
+                    $userRecord->credit_used= $credits;
+                    $userRecord->account_type= $account_type;
+                    $userRecord->credit_type= $credit_type;
+                    $userRecord->subject_code = isset($model->subject_code) ? $model->subject_code : null;
+                    if ($userRecord->save()) {
+                      //\Yii::$app->session->setFlash('success', \Yii::t('app', 'Your request has been submitted'));
+                      return [
+                        'data' => [
+                            'success' => true,
+                            'id' =>'1',
+                            'message' => 'File Upload Successfully.',
+                            'status' => 'OK'
+                        ]
+                    ];
+                }
+                } else {
+                    return [
+                        'data' => [
+                            'error' => true,
+                            'id' =>'0',
+                            'message' => 'Something went wrong',
+                            'status' => 'NOK'
+                        ]
+                    ];
+                  //  \Yii::$app->session->setFlash('error', \Yii::t('app', 'Something went wrong'));
+                    // return [
+                    //     'status' => 'OK'
+                    // ];
+                }
+            } else {
+                return [
+                    'data' => [
+                        'error' => true,
+                        'id' =>'0',
+                        'message' => $model->getFirstError('file'),
+                        'status' => 'NOK'
+                    ]
+                ];
+               // \Yii::$app->session->setFlash('error', $model->getFirstError('file'));
+            }
+        } else {
+
+            return [
+                'data' => [
+                    'error' => true,
+                    'id' =>'0',
+                    'message' => \Yii::t('app', 'Please upload a file'),
+                    'status' => 'NOK'
+                ]
+            ];
+
+         //   \Yii::$app->session->setFlash('error', \Yii::t('app', 'Please upload a file'));
+        }
+
+        return [
+            'status' => 'OK'
+        ];
+    }
+
+    public function actionTextScan()
+    {
+        $model = new UserRecords(['scenario' => 'text']);
+            if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+           
+                Yii::$app->response->format = Response::FORMAT_JSON;
+                $err = ActiveForm::validate($model);
+                return $err;
+            }
+        return $this->renderAjax('textScan', [
+            'model' => $model
+        ]);
+    }
+
+    public function actionFileScan()
+    {
+        $model = new FileModelForm();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+        return $this->renderAjax('fileScan', [
+            'model' => $model
+        ]);
+    }
+
+    public function actionUrlScan()
+    {
+
+        $model = new UserRecords(['scenario' => 'url']);
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return $err = ActiveForm::validate($model);
+        }
+        return $this->renderAjax('urlScan', [
+            'model' => $model
+        ]);
+    }
+
+
+}
