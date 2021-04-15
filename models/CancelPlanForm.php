@@ -69,8 +69,7 @@ class CancelPlanForm extends \app\models\BaseActiveRecord
      * {@inheritdoc}
      * @return UserPlansQuery the active query used by this AR class.
      */
-    public static function find()
-    {
+    public static function find() {
         return (new UserPlansQuery(get_called_class()))->where([
         		'isDeleted'=>0
         ]);
